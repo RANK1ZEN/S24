@@ -1,0 +1,117 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Week II}
+
+\begin{problem}
+    Let $a, b$ be positive real numbers.
+    Set $x_0 = a$ and $x_{n + 1} = (x_n^{-1} + b)^{-1}$ for $n \ge 0$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Prove that $x_n$ is monotone decreasing.
+        \item Prove that the limit exists and find it.
+    \end{enumerate}
+\end{problem}
+\begin{enumerate}[label=(\alph*)]
+    \item Notice that the sequence is positive, hence we have the following equality for all $n \ge 0$.
+        \begin{align*}
+            b x_n + 1 &> 1 \\
+            x_n ((x_n)^{-1} + b) &> 1 \\
+            x_n &> (x_n^{-1} + b)^{-1}
+        \end{align*}
+        The last equality implies $x_n > x_{n + 1}$.
+    \item Since the sequence is positive, it has a lower bound 0 and by the Monotone convergence theorem, it converges.
+        Hence we know
+        \[
+            \lim_{n \to \infty} x_n = L
+        \]
+        exists for some $L$.
+        \begin{align*}
+            \lim_{n \to \infty} (x_n^{-1} + b)^{-1}
+            &= (L^{-1} + b)^{-1} \\
+            L &= (L^{-1} + b)^{-1}
+        \end{align*}
+        $L$ becomes 0.
+\end{enumerate}
+
+\begin{problem}[\S2.7 A]
+    Show that
+    \[
+        (a_n) = \left( \frac{n \cos^n(n)}{\sqrt{n^2 + 2n}} \right)_{n = 1}^\infty
+    \]
+    has a convergent subsequence.
+\end{problem}
+By the Bolzano-Weierstrass Theorem, it simply suffices to show that $(a_n)$ is bounded.
+This can be readily shown since for all $n \ge 1$, $\cos^n(n) \in [-1, 1]$ and $\frac{n}{\sqrt{n^2 + 2n}} < 1$.
+
+\begin{problem}[\S2.7 I]
+    Suppose $(x_n)_{n = 1}^\infty$ is a sequence in $\mathbb{R}$, and that $L_k$ are real numbers with $\lim_{k \to \infty} L_k = L$.
+    If for each $k \ge 1$, there is a subsequence of $(x_n)_{n = 1}^\infty$ converging to $L_k$, show that some subsequence converges to $L$.
+
+    \textbf{HINT}: Find an increasing sequence $n_k$ such that $|x_{n_k} - L| < 1/k$.
+\end{problem}
+Construct a sequence $(n_k)_{k = 1}^\infty$ by the following procedure for each $k$.
+Consider the fact that the sequence $(L_j)_{j = 1}^\infty$ approaches $L$.
+We can require some $J$ such that $|L_{J} - L| < \frac{1}{2k}$.
+For this $J$, we are given a subsequence $(x_{s_{i}})_{i = 1}^\infty$ that converges to $L_J$, and thus we can require $I \in \mathbb{N}$ such that for $i \ge I$, $|x_{s_i} - L_J| < \frac{1}{2k}$.
+Take $n_k$ as some $s_i$ where $i \ge I$ and $n_k$ is greater than all the previous terms.
+Hence $(n_k)$ satisfies an increasing sequence where for each $k$,
+\[
+    |x_{n_k} - L| \le |x_{n_k} - L_J| + |L_J - L| < \frac{1}{k}.
+\]
+Since we have $|x_{n_k} - L| < \frac{1}{k}$ for every $k$, we can conclude that $x_{n_k}$ converges to $L$.
+
+\begin{problem}[\S2.7 J]
+    (\textbf{a}) Suppose that $(x_n)_{n = 1}^\infty$ is a sequence of real numbers.
+    If $L = \liminf x_n$,\footnote{$\liminf$ is defined as
+        \[ \liminf x_n := \lim_{n \to \infty} \left(\inf_{m \ge n} x_m\right) \]}
+    show that there is a subsequence $(x_{n_k})_{k = 1}^\infty$ such that $\lim_{k \to \infty} x_{n_k} = L$.
+\end{problem}
+{\huge TODO}
+
+\begin{problem}[\S2.8 A]
+    Let $(x_n)$ be Cauchy with a subsequence $(x_{n_k})$ such that
+    \[
+        \lim_{k \to \infty} x_{n_k} = a.
+    \]
+    Show that $\lim_{n \to \infty} x_n = a$.
+\end{problem}
+Fix $\varepsilon > 0$.
+We will the limit definitions of $(x_n)$ and $(x_{n_k})$ to require that:
+\begin{itemize}
+    \item There exists $M$ such that for every $n, m \ge M$, $|x_n - x_m| < \varepsilon/2$.
+    \item There exists $K$ such that for every $k \ge K$, $|x_{n_k} - a| < \varepsilon/2$.
+\end{itemize}
+Take $N = \max\{ M, K \}$, so that we have both conditions.
+We have that for $n \ge N$,
+\begin{align*}
+    |x_n - a|
+    &= |x_n - x_{n_k} + x_{n_k} - a| \\
+    &\le |x_n - x_{n_k}| + |x_{n_k} - a| \\
+    & < \varepsilon/2 + \varepsilon/2 = \varepsilon
+\end{align*}
+
+\begin{problem}[\S3.1 C]
+    Prove that if $p > 1$ and $\sum_{k = 1}^\infty t_k$ is a convergent series of nonnegative numbers, $\sum_{k = 1}^\infty t_k^p$ converges.
+\end{problem}
+Proceed by the Cauchy criterion for series.
+Fix $\varepsilon > 0$.
+Without loss, assume $\varepsilon < 1$.
+Since $t_k$ is convergent, there is an $N$ such that for all $n, m \ge N$,
+\[
+    \sum_{k = n + 1}^m t_k < \varepsilon
+\]
+Since $\varepsilon < 1$, $t_k < 1$ for $n < k \le m$.
+Hence $t_k^p < t_k$ for $n < k \le m$.
+Thus we have
+
+\begin{problem}[\S 3.1 D]
+    Let $(a_n)_{n = 1}^\infty$ be a sequence such that $\lim_{n \to \infty} |a_n| = 0$.
+    Prove that there is a subsequence $(a_{n_k})$ such that $\sum_{k = 1}^\infty a_{n_k}$ converges.
+\end{problem}
+For each $k \ge 1$, we will take $n_k$ as 
+
+$N$ such that for $n \ge N$, $|a_{n}| < 1/k^2$.
+
+
+\end{document}
