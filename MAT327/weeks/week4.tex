@@ -1,0 +1,141 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Week IV - Continuous functions, initial topologies, the product topology}
+
+\begin{problem}[1]
+Suppose that $f : X \to Y$ is continuous\footnote{$f : X \to Y$ is continuous if for each open subset of $Y$, the preimage is an open subset of $X$.}.
+If $x$ is a limit point of $A \subseteq X$, does it follow that $f(x)$ is a limit point of $f[A]$?
+\end{problem}
+\begin{proof}
+	Let $V$ be a neighbourhood\sidenote{$U$ is a neighbourhood of $x$ iff $U$ is an open set containing $x$.}
+	around $f(x)$.
+	Use continuity of $f$ to obtain the neighbourhood $f^{-1}[V]$ as an open subset of $X$ such that $x \in f^{-1}[V]$.
+	Since $x$ is a limit point of $A$, $f^{-1}[V]$ intersects with $A$ at some point other than $x$, call this point $x_0$.
+	Now consider $f(x_0)$.
+	Using the following inequality\sidenote{Follows from inclusion properties of image and preimages.},
+	\[
+		f[f^{-1}[V] \cap A]
+		\quad \subseteq \quad
+		f[f^{-1}[V]] \cap f[A]
+		\quad \subseteq \quad
+		V \cap f[A],
+	\]
+	we have that $f(x_0) \in V \cap f[A]$ and is a point distinct of $f(x)$.
+	This shows the intersection is nonempty, and $f(x)$ is indeed a limit point of $f[A]$.
+\end{proof}
+
+\begin{problem}[2]
+Let $X$ be a topological space and let $\{ U_\alpha : a \in \Lambda \}$ be a collection of open sets such that
+\[
+	X = \bigcup_{\alpha \in \Lambda} U_\alpha.
+\]
+\begin{enumerate}[label=(\alph*)]
+	\item Prove that if $Y$ is topological space and $f: X \to Y$ is a function such that each restriction $f\upharpoonright U_\alpha$ is continuous, then $f$ is continuous as well.
+	\item Conclude that the Pasting Lemma\footnote{If $X$ is the union of two closed sets, and we have continuous functions defined on the sets, if the continuous functions agree, then the combined function is also continuous.}
+	      holds if $X$ is expressed as the union of two open (instead of closed) sets.
+\end{enumerate}
+\end{problem}
+A union B where A and B are closed in X.
+If $f$ and $g$ are conty and they agree in the intersection, then the piecewise fucntion is continioue.
+\begin{enumerate}[label=(\alph*)]
+	\item Fix an open set $V \subseteq Y$.
+	      The preimage $f^{-1}[V]$ is equal to the union of all $(f\upharpoonright U_\alpha)^{-1}[V]$.
+	      Since each restriction is continuous, their preimages are open, and thus this shows the union $f^{-1}[V]$ is also open.
+	\item Fix two open sets $A, B \subseteq X$ and two continuous functions $f, g$ defined on $A$ and $B$ respectively.
+	      In the case of the pasting lemma, we have a function $h : X \to Y$, where $h\upharpoonright A = f$ and $h\upharpoonright B = g$.
+	      Following from (a), $h$ is continuous as well.
+\end{enumerate}
+
+\begin{problem}[3, Munkres \S18 Ex.9]
+Let $\mathscr{A} := \{ A_\alpha : \alpha \in \Lambda \}$ be a collection of closed subsets of the topological space $X$ such that
+\[
+	X= \bigcup_{\alpha \in \Lambda} A_\alpha,
+\]
+and let $f : X \to Y$ be a function such that each restriction $f\upharpoonright A_\alpha$ is continuous.
+\begin{enumerate}[label=(\alph*)]
+	\item Prove that $f$ is continuous if $\mathscr{A}$ is finite.
+	\item Does (a) hold if $\mathscr{A}$ is infinite?
+	\item The family $\mathscr{A}$ is called \emph{locally finite} if each point $x \in X$ has an open neighbourhood that intersects only finitely many $A_\alpha$'s.
+	      Prove that if $\mathscr{A}$ is locally finite then $f$ is continuous.
+\end{enumerate}
+\end{problem}
+
+\begin{proof}[Proof of (a)]
+	This is just repeated application of the pasting lemma.
+	Suppose a finite collection of closed subsets $A_1, \cdots, A_n$ of $X$ and that $f$
+	$f$ restricted to $A_1$ is continuous and
+	$f$ restricted to $\bigcup_{i = 2}^n A_i$ is continuous.
+
+	Thus by the pasting lemma, $f$ defined on the union, which equals $X$ is continuous.
+\end{proof}
+
+(a) does not hold for an infinite collection because $X$ might not be closed so we have counter examples like $f(x) = 1/x$ with domain $\mathbb{R} \setminus \{0\}$.
+
+\begin{proof}[Proof of (c)]
+	Proceed by the open neighbourhood/image characterization of continuity\footnote{$f$ is continuous $\Leftrightarrow$ for each $x \in X$ and each open neighbourhood $V$ of $f(x)$, there is an open neighbourhood $U$ of $x$ such that $f[U] \subseteq V$.}
+	.
+	But first, we show another property.
+	Fix a point $x \in X$.
+	Since $\mathscr{A}$ is locally finite, we have an open neighbourhood $U_x$ around $x$ that intersects finite many $A_\alpha$'s.
+	Let $U'$ be the union of the finite $A_\alpha$'s.
+	Note that $U'$ is closed and it contains $U_x$ since the $A_\alpha$'s cover $X$.
+	Thus by (a), $f$ is at least continuous on $U_x$.
+
+
+	To show continuity on $X$, fix a point $x \in X$ and let $V$ be a open neighbourhood of $f(x)$.
+	We can require an open neighbourhood $U_x$ of $x$ that intersects with finitely many $A_\alpha$'s.
+	Apply continuity of $f$ on $U_x$ to obtain $W$
+	Since $f$
+
+	%WTS
+	$f$ is continuous on $U_x$ with $U_x$ as a topological space.
+	So we can find an open neighbourhood $W \subseteq U_x$
+	with $f[W] \subseteq V$. and $W$ is an open neighbourhood of $x$.
+\end{proof}
+
+\begin{problem}[5]
+Consider the set of real numbers $\mathbb{R}$ endowed with the usual topology.
+\begin{enumerate}[label=(\alph*)]
+	\item Prove that every collection of pairwise disjoint open subsets of $\mathbb{R}$ is countable.
+	\item Prove that the set of $\alpha\in\omega_1$ with an immediate predecessor is uncountable.
+	\item Conclude that there is no order-preserving function $f\colon\omega_1\to\mathbb{R}$.
+	\item Is there an imbedding $f\colon\omega_1\to\mathbb{R}$?
+\end{enumerate}
+\end{problem}
+{\huge TODO}
+
+\begin{problem}[7]
+Let $\tau$ be a topology on the set $X$ and let $S$ be the Sierpi\'nski space.\footnote{
+	The set of two elements, $\{0, 1\}$ and the open sets are $\{ \emptyset, \{1\}, \{0, 1\} \}$.}
+Prove that $\tau$ is the initial topology\footnote{The initial topology given a family of functions is defined as the intersection of all $\tau$, where $\tau$ is a topology on $X$ and each function is continuous on $(X, \tau)$.}
+of the continuous functions $f : X \to S$.
+\end{problem}
+{\huge TODO}
+\begin{proof}
+	($\subseteq$). Fix an open set $U \in \tau$.
+	Since the functions of the form $f : X \to S$ is the set $\{0, 1\}^X$, we will have a characteristic function of $U$.
+	The preimage $\{1\}$ of this function is $U$, and since $\{1\}$ is open in the Sierpi\'nski space, so is $U$.
+
+	($\supseteq$) Fix an open set $U$ in the initial topology.
+\end{proof}
+
+\begin{problem}[8, Munkres Theorem 19.4]
+    Let $\{ X_\alpha : \alpha \in \Lambda \}$ be a collection of Hausdorff spaces and let $X$ be their Cartesian product.\footnote{
+        The Cartesian product is the set of all functions
+        \[ x : \Lambda \to \bigcup_{\alpha \in \Lambda} X_\alpha \]
+        such that $x(\alpha) \in X_\alpha$ for each $\alpha \in \Lambda$.
+    }
+\end{problem}
+\begin{enumerate}[label=(\alph*)]
+	\item Prove that $X$ is Hausdorff when endowed with the product topology.
+	\item Prove that $X$ is Hausdorff when endowed with the box topology.
+\end{enumerate}
+Fix two distinct points $x, y \in X$.
+Then there is some $\alpha_0$ such that $x_$
+
+
+
+
+\end{document}
