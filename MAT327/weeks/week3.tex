@@ -1,0 +1,170 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Week III - Subspaces, closed sets and limit points, Hausdorff spaces}
+
+\begin{problem}
+    Prove that the topology of the lexicographic plane is the same as the product topology $\mathbb{R}_d \times \mathbb{R}$.
+\end{problem}
+\begin{proof}
+    It suffices to consider the basic open sets in both topologies.
+    Every open interval in the lexicographic plane can be expressed as a union of open sets in $\mathbb{R}_d \times \mathbb{R}$.
+    Hence the topology on $\mathbb{R}_d \times \mathbb{R}$ is finer than the dictionary topology.
+
+    Conversely, open basic sets in $\mathbb{R}_d \times \mathbb{R}$ take the form $\{ x \} \times (y_1, y_2)$, which are themselves open intervals in the lexicographic plane.
+    Hence these topologies are the same.
+\end{proof}
+
+\begin{problem}
+    Prove that if $Y$ is a convex
+    subset of an ordered set $X$, then the order topology on $Y$ is equal to the topology on $Y$ as a subspace of $X$ endowed with the order topology.
+\end{problem}
+\sidenote{A subset $Y$ of an ordered set $X$ is called \textit{convex} if for all $x, y \in Y$, the interval $[x, y]$ is included in $Y$ as well.}
+\begin{proof}
+    ($\subseteq$) Consider the order topology on $Y$, and open rays in $Y$ which are a subbasis for the order topology.
+    Open rays in the order topology are simply intersections of open rays in $X$ with $Y$, in particular, they are also open in the subspace topology. 
+    Since open rays form a subbasis
+    \sidenote{If $\tau_1$ and $\tau_2$ are topologies on a set, showing $S_1 \subseteq \tau_2$ or $\mathscr{B} \subseteq \tau_2$ shows that $\tau_1 \subseteq \tau_2$.},
+    the order topology is included in the subspace topology.
+
+    ($\supseteq$) Consider the subspace topology on $Y$, and a subbasis consisting of intersections $Y$ and open rays of $X$
+    Since $Y$ is convex, these intersections are still open rays in $Y$, which shows that the subspace topology in included in the order topology.
+\end{proof}
+
+\begin{problem}
+    If $L$ is a straight line in the plane, describe the topology $L$ inherits as a subspace of (a) $\mathbb{R}_\ell \times \mathbb{R}$ and as a subspace of (b) $\mathbb{R}_\ell \times \mathbb{R}_\ell$.
+    In each case it is a familiar topology.
+\end{problem}
+\begin{enumerate}[label=(\alph*)]
+    \item The general basis element of $\mathbb{R}_\ell \times \mathbb{R}$ is
+        \[
+            [a, b) \times (c, d),
+        \]
+        for real numbers $a, b, c, d$.
+        The general basis element that $L$ inherits as a subspace is
+        \[[a, b) \times (c, d) \cap L.\]
+\end{enumerate}
+
+\begin{problem}
+    A collection $\mathscr{C}$ of subsets of a set $X$ is called a \emph{closed basis for a topology on $X$} if:
+    \begin{enumerate}[label=(\roman*)]
+        \item The intersection of $\mathscr{C}$ is empty.
+        \item For all $C_1, C_2 \in \mathscr{C}$, and all $x \notin C_1 \cup C_2$, there is some $C_3 \in \mathscr{C}$ such that
+            \[
+                x \notin C_3 \text{ and } C_1 \cup C_2 \subseteq C_3.
+            \]
+    \end{enumerate}
+
+    \begin{enumerate}
+        \item[(a)] Prove that a collection $\mathscr{C}$ of subsets of $X$ is a closed basis for a topology on $X$ if, and only if, the collection $\{U\subseteq X:X\setminus U\in\mathscr{C}\}$ is a basis for a topology on $X$.
+    \end{enumerate} 
+
+    Let now $\mathbb{C}$ be the set of complex numbers and let $n\in\mathbb{N}$. For each set $S$ of polynomials with complex coefficients and $n$-many variables, let
+    \[
+        V(S):=\left\{\vec x\in\mathbb{C}^n:(\forall f\in S)(f\left(\vec x\right)=0)\right\}.
+    \]
+    \begin{enumerate}
+        \item[(b)] Prove that the collection
+            $\{V(S): S$ is a set of polynomials with complex coefficients and $n$-many variables$\}$
+            is a closed basis for a topology on $\mathbb{C}^n$.
+        \item[(c)] Can you describe this topology explicitly when $n=1$?
+
+        \textbf{Hint:} It is a familiar topology that we already defined in class.
+    \end{enumerate}
+\end{problem}
+\begin{enumerate}[label=(\alph*)]
+    \item Fix a collection of subsets $\mathscr{C}$ and define $\mathscr{B} := \{U\subseteq X:X\setminus U\in\mathscr{C}\}$.
+        To show one side of the implication, assume $\mathscr{C}$ be a closed basis.
+        \begin{enumerate}
+            \item[(1)] Fix $x \in X$.
+                Since the intersection of $\mathscr{C}$ is empty, there exists a $C \in \mathscr{C}$ such that $x \notin C$.
+                Then $C^\complement \in \mathscr{B}$ with $x \in C^\complement$.
+            \item[(2)] Fix two sets $B_1, B_2 \in \mathscr{B}$.
+                These sets have the property that ${B_1}^\complement \in \mathscr{C}$ and ${B_2}^\complement \in \mathscr{C}$.
+                For elements in the intersection $x \in B_1 \cap B_2$, we have that $x \notin {B_1}^\complement \cap {B_2}^\complement$.
+                By the second property of the closed basis, we have some $C_3 \in \mathscr{C}$ such that $x \notin C_3$ and ${B_1}^\complement \cap {B_2}^\complement \subseteq C_3$.
+                $C_3$ satisfies ${C_3}^\complement \in \mathscr{B}$, which satisfy $x \in {C_3}^\complement$ and ${C_3}^\complement \subseteq B_1 \cup B_2$.
+        \end{enumerate}
+        To show the other side of the implication, assume $\mathscr{B}$ is a basis.
+        \begin{enumerate}[label=(\roman*)]
+            \item Fix $x \in X$. % FIXME
+                There is a basis $B$ such that $x \in B$ and hence $B^\complement \in $
+            \item Fix $C_1, C_2 \in \mathscr{C}$ and $x \notin C_1 \cup C_2$.
+                Since ${C_1}^\complement, {C_2}^\complement \in \mathscr{B}$ and $x \in {C_1}^\complement \cap {C_2}^\complement$, there exists $B_3 \in \mathscr{B}$ such that $x \in B_3 \subseteq {C_1}^\complement \cap {C_2}^\complement$.
+                Thus $x \notin {B_3}^\complement$ and $C_1 \cup C_2 \subseteq {B_3}^\complement$.
+        \end{enumerate}
+    \item (i), it is kinda obvious that no vectors satisfy the whole thing.
+\end{enumerate}
+
+\begin{problem}
+    Let $A$ and $B$ be subsets of a topological space $X$.
+    Either prove or give a counterexample for the following equalities:
+    \begin{enumerate}[label=(\alph*)]
+        \item $\overline{A\cup B}=\overline{A}\cup\overline{B}$
+        \item $\overline{A\cap B}=\overline{A}\cap\overline{B}$
+        \item $\overline{A\setminus B}=\overline{A}\setminus\overline{B}$
+        \item $\overline{A\times B}=\overline{A}\times\overline{B}$
+    \end{enumerate}
+\end{problem}
+\begin{enumerate}[label=(\alph*)]
+    \item ($\supseteq$)
+        We have $A, B \subseteq A \cup B$ hence $\overline{A}, \overline{B} \subseteq \overline{A \cup B}$ and their unions are also contained.
+
+        ($\subseteq$)
+        Fix a point $x \in \overline{A \cup B}$.
+        By definition, $x$ belongs to every closed set containing $A \cup B$.
+        Notice that $\overline{A} \cup \overline{B}$ is a closed set containing $A \cup B$, hence $x \in \overline{A} \cup \overline{B}$.
+    \item This is false.
+        Take $\mathbb{Q}$ and $\mathbb{R} \setminus \mathbb{Q}$ as subsets of $\mathbb{R}$ with the usual topology.
+        Consider the respective closures both $\mathbb{R}$, which has intersection $\mathbb{R}$.
+        But $\mathbb{R} \cap \mathbb{R} \setminus \mathbb{Q} = \emptyset$ is empty, of which taking the closure is still empty.
+    \item H
+\end{enumerate}
+
+\begin{problem}
+    Let $A$ be a subset of a topological space $X$:
+    \begin{enumerate}[label=(\alph*)]
+        \item Prove that $A$ is open if, and only if, $A = A^\circ$.
+        \item Prove that $A$ is closed if, and only if, $A = \overline{A}$.
+    \end{enumerate}
+\end{problem}
+\begin{enumerate}[label=(\alph*)]
+    \item Assume $A$ is open, it suffices to show $A \subseteq A^\circ$, since the other inclusion is trivial.
+        Fix $x \in A$, we can find a basis 
+        Conversely, assume $A = A^\circ$, then $A$ is a union of open sets, which is open.
+    \item Assume $A$ is closed, it suffices to show $\overline{A} \subseteq A$.
+        Fix $x \in \overline{A}$, % FIXME
+        Conversely, assume $A = \overline{A}$, $A$ is a intersection of closed sets, which is closed.
+\end{enumerate}
+
+\begin{problem}
+    Compute the interior and the closure of the following sets:
+    \begin{enumerate}[label=(\alph*)]
+        \item $(0, 1]$ as a subset of the Sorgenfrey line.
+    \end{enumerate}
+\end{problem}
+\begin{enumerate}[label=(\alph*)]
+    \item Closure $a$
+\end{enumerate}
+
+\begin{problem}
+\end{problem}
+
+\begin{problem}
+    Prove the following statements:
+    \begin{enumerate}[label=(\alph*)]
+        \item Every order topology is Hausdorff.
+        \item The product of two Hausdorff spaces is Hausdorff.
+        \item A subspace of a Hausdorff space is Hausdorff.
+    \end{enumerate}
+\end{problem}
+\begin{enumerate}[label=(\alph*)]
+    \item For any two points $x, y$ in an order topology, we can find some basic interval around $x$, then find another interval around $y$ that doesn't intersect with the first interval.\sidenote{This is omega hand-wavy.}
+    \item Fix two points $(x_1, x_2), (y_1, y_2)$ in the product of Hausdorff spaces.
+\end{enumerate}
+
+\begin{problem}
+\end{problem}
+
+\end{document}
