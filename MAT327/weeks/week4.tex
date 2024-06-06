@@ -63,12 +63,11 @@ and let $f : X \to Y$ be a function such that each restriction $f\upharpoonright
 \end{problem}
 
 \begin{proof}[Proof of (a)]
-	This is just repeated application of the pasting lemma.
-	Suppose a finite collection of closed subsets $A_1, \cdots, A_n$ of $X$ and that $f$
-	$f$ restricted to $A_1$ is continuous and
-	$f$ restricted to $\bigcup_{i = 2}^n A_i$ is continuous.
+	Use repeated application of the pasting lemma.
+    It suffices to show this property for the case when $\mathscr{A}$ is two closed subsets; we can just apply induction for an arbitrary $n$ subsets.
 
-	Thus by the pasting lemma, $f$ defined on the union, which equals $X$ is continuous.
+    Suppose $U, V$ are closed subsets of $X$ such that $X = U \cup V$.
+    Since $f \upharpoonright U$ is continuous and $f \upharpoonright V$ is continuous, by the pasting lemma, $f$ is continuous.
 \end{proof}
 
 (a) does not hold for an infinite collection because $X$ might not be closed so we have counter examples like $f(x) = 1/x$ with domain $\mathbb{R} \setminus \{0\}$.
@@ -76,23 +75,22 @@ and let $f : X \to Y$ be a function such that each restriction $f\upharpoonright
 \begin{proof}[Proof of (c)]
 	Proceed by the open neighbourhood/image characterization of continuity\footnote{$f$ is continuous $\Leftrightarrow$ for each $x \in X$ and each open neighbourhood $V$ of $f(x)$, there is an open neighbourhood $U$ of $x$ such that $f[U] \subseteq V$.}
 	.
-	But first, we show another property.
-	Fix a point $x \in X$.
-	Since $\mathscr{A}$ is locally finite, we have an open neighbourhood $U_x$ around $x$ that intersects finite many $A_\alpha$'s.
-	Let $U'$ be the union of the finite $A_\alpha$'s.
-	Note that $U'$ is closed and it contains $U_x$ since the $A_\alpha$'s cover $X$.
-	Thus by (a), $f$ is at least continuous on $U_x$.
+
+	% But first, we show another property.
+	% Fix a point $x \in X$.
+	% Since $\mathscr{A}$ is locally finite, we have an open neighbourhood $U_x$ around $x$ that intersects finite many $A_\alpha$'s.
+	% Let $U'$ be the union of the finite $A_\alpha$'s.
+	% Note that $U'$ is closed and it contains $U_x$ since the $A_\alpha$'s cover $X$.
+	% Thus by (a), $f$ is at least continuous on $U_x$.
 
 
-	To show continuity on $X$, fix a point $x \in X$ and let $V$ be a open neighbourhood of $f(x)$.
-	We can require an open neighbourhood $U_x$ of $x$ that intersects with finitely many $A_\alpha$'s.
-	Apply continuity of $f$ on $U_x$ to obtain $W$
-	Since $f$
-
-	%WTS
-	$f$ is continuous on $U_x$ with $U_x$ as a topological space.
-	So we can find an open neighbourhood $W \subseteq U_x$
-	with $f[W] \subseteq V$. and $W$ is an open neighbourhood of $x$.
+	To show continuity on $X$, fix a point $x \in X$, and let $V$ be an open neighbourhood of $f(x)$.
+	We can require an open neighbourhood $U$ of $x$ that intersects with finitely many $A_\alpha$'s.
+    Lets call this collection $A'$ with $A$ being their union.
+    Since $X$..., $U \subseteq A$.
+    In fact, $A$ is a topological space and $f \upharpoonright A$ is continuous since $A'$ is finite.
+    Now let $V$ be a neighbourhood of $f(x)$.
+    There exists 
 \end{proof}
 
 \begin{problem}[5]
