@@ -5,16 +5,16 @@
 \section{Week IV - Continuous functions, initial topologies, the product topology}
 
 \begin{problem}[1]
-Suppose that $f : X \to Y$ is continuous\footnote{$f : X \to Y$ is continuous if for each open subset of $Y$, the preimage is an open subset of $X$.}.
+Suppose that $f : X \to Y$ is continuous\footnote{$f$ is continuous $\Leftrightarrow$ for each open subset of $Y$, the preimage is an open subset of $X$.}.
 If $x$ is a limit point of $A \subseteq X$, does it follow that $f(x)$ is a limit point of $f[A]$?
 \end{problem}
 \begin{proof}
-	Let $V$ be a neighbourhood\sidenote{$U$ is a neighbourhood of $x$ iff $U$ is an open set containing $x$.}
+	Let $V$ be a neighbourhood\footnote{$U$ is a neighbourhood of $x$ iff $U$ is an open set containing $x$.}
 	around $f(x)$.
 	Use continuity of $f$ to obtain the neighbourhood $f^{-1}[V]$ as an open subset of $X$ such that $x \in f^{-1}[V]$.
 	Since $x$ is a limit point of $A$, $f^{-1}[V]$ intersects with $A$ at some point other than $x$, call this point $x_0$.
 	Now consider $f(x_0)$.
-	Using the following inequality\sidenote{Follows from inclusion properties of image and preimages.},
+	Using the following inequality\footnote{Follows from inclusion properties of image and preimages.},
 	\[
 		f[f^{-1}[V] \cap A]
 		\quad \subseteq \quad
@@ -48,12 +48,12 @@ If $f$ and $g$ are conty and they agree in the intersection, then the piecewise 
 	      Following from (a), $h$ is continuous as well.
 \end{enumerate}
 
-\begin{problem}[3, Munkres \S18 Ex.9]
+\begin{problem}[3, \S18 Ex.9]
 Let $\mathscr{A} := \{ A_\alpha : \alpha \in \Lambda \}$ be a collection of closed subsets of the topological space $X$ such that
 \[
 	X= \bigcup_{\alpha \in \Lambda} A_\alpha,
 \]
-and let $f : X \to Y$ be a function such that each restriction $f\upharpoonright A_\alpha$ is continuous.
+and let $f : X \to Y$ be a function such that each restriction $f \upharpoonright A_\alpha$ is continuous.
 \begin{enumerate}[label=(\alph*)]
 	\item Prove that $f$ is continuous if $\mathscr{A}$ is finite.
 	\item Does (a) hold if $\mathscr{A}$ is infinite?
@@ -134,11 +134,11 @@ of the continuous functions $f : X \to S$.
 \end{proof}
 
 \begin{problem}[8, Munkres Theorem 19.4]
-    Let $\{ X_\alpha : \alpha \in \Lambda \}$ be a collection of Hausdorff spaces and let $X$ be their Cartesian product.\footnote{
-        The Cartesian product is the set of all functions
-        \[ x : \Lambda \to \bigcup_{\alpha \in \Lambda} X_\alpha \]
-        such that $x(\alpha) \in X_\alpha$ for each $\alpha \in \Lambda$.
-    }
+Let $\{ X_\alpha : \alpha \in \Lambda \}$ be a collection of Hausdorff spaces and let $X$ be their Cartesian product.\footnote{
+	The Cartesian product is the set of all functions
+	\[ x : \Lambda \to \bigcup_{\alpha \in \Lambda} X_\alpha \]
+	such that $x(\alpha) \in X_\alpha$ for each $\alpha \in \Lambda$.
+}
 \end{problem}
 \begin{enumerate}[label=(\alph*)]
 	\item Prove that $X$ is Hausdorff when endowed with the product topology.
