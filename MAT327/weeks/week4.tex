@@ -147,7 +147,31 @@ Let $\{ X_\alpha : \alpha \in \Lambda \}$ be a collection of Hausdorff spaces an
 Fix two distinct points $x, y \in X$.
 Then there is some $\alpha_0$ such that $x$
 
-% NOTE: PS10
+\begin{problem}[9]
+    Let $\mathbb{R}^\infty$ be the subset of $\mathbb{R}^\omega$ consisting of all the sequences of real numbers that are \textbf{eventually zero}, i.e., all sequences $(x_n:n\in\mathbb{N})$ for which $x_n\neq 0$ for only finitely many $n$'s.
+    \footnote{$\mathbb{R}^\omega$ is an infinite countable product of $\mathbb{R}$, i.e., an arbitrary sequence of reals.}
+
+    Compute the closure of $\mathbb{R}^\infty$ in $\mathbb{R}^\omega$ both in the box and product topologies.
+\end{problem}
+
+In the box topology, $\overline{\mathbb{R}^\infty} = \mathbb{R}^\infty$.
+To show this, it suffices to show $\mathbb{R}^\infty$ contains all of its limit points.
+\footnote{$\overline{A} = A \Leftrightarrow A' \subseteq A$ $\Leftrightarrow$ $A$ is closed.}
+Suppose $x$ is a limit point of $\mathbb{R}^\infty$.
+By definition, for each open neighbourhood $U$ of $x$, there exists another sequence $y \in U$ different from $x$ that is eventually zero.
+Note that $U$ takes the form
+\[
+    \prod_{\alpha \in \omega} (a_\alpha, b_\alpha)
+\]
+where $x_\alpha \in (a_\alpha, b_\alpha)$ for every $\alpha$.
+Thus if we also have $y_\alpha \in (a_\alpha, b_\alpha)$, and $y$ is eventually zero, then $x$ must also be eventually zero.
+
+In the product topology, the open sets are slightly different, and in this case, $\overline{\mathbb{R}^\infty} = \mathbb{R}^\omega$.
+Again, suppose $x$ is a limit point of $\mathbb{R}^\infty$, and for each open neighbourhood of $x$, there is some sequence sequence $y$ that is eventually zero.
+Since $U$ under the product topology can only have a finite number of indices with arbitrary open sets, $x$ does not necessarily have to be eventually zero.
+Thus the set of limit points of $\mathbb{R}^\infty$ is $\mathbb{R}^\omega$, which implies $\overline{\mathbb{R}^\infty} = \mathbb{R}^\omega$.
+\footnote{$\overline{A} = A' \cup A$.}
+
 \begin{problem}[10]
 Let $\{X_\alpha:\alpha\in\Lambda\}$ be a collection of topological spaces and let $X$ be their Cartesian product.
 Let $(x_n:n\in\mathbb{N})$ be a sequence in $X$.
