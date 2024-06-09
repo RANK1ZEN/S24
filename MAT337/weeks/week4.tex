@@ -108,4 +108,30 @@ Show that if $(|a_n|)_{n=1}^\infty$ is summable, then so is $(a_n)_{n=1}^\infty$
     $(|a_n|)$ is summable and $|a_n| \le |a_n|$ then $a_n$ is summable.
 \end{proof}
 
+\begin{problem}[\S4.4 I]
+Let $A$ and $B$ be disjoint closed subsets of $\mathbb{R}^n$.
+Define
+\[
+	d(A, B) = \inf\{\|a - b\| : a \in A, b \in B\}.
+\]
+\begin{itemize}
+	\item[(a)] If $A = \{a\}$ is a singleton, show that $d(A, B) > 0$.
+	\item[(b)] If $A$ is compact, show that $d(A, B) > 0$.
+	\item[(c)] Find an example of two disjoint closed sets in $\mathbb{R}^2$ with $d(A, B) = 0$.
+\end{itemize}
+\end{problem}
+
+For contradiction, assume that $d(A, B) = 0$.
+Since $d$ is defined as an infimum, we can find some sequence $(\|a - b_n\|)_n$ with $\lim_{n \to \infty} (a - b_n) = 0$ where $a \in A$ is the single element and $b_n \in B$ is a sequence.
+Thus the limit of $(b_n)_n$ considered as a sequence approaches $a \in A$.
+Given that $B$ is closed, $a \in B$.
+
+We can apply the same idea if $A$ is compact.
+Assume the same contradiction, in this case, we have some sequence $(\|a_n - b_n\|)_n$ with limit $0$.
+Thus $a_n$ approaches $x$ in $A$ and $b_n$ approaches the same $x$ but then $x$ must be in $B$.
+Again, the intersection is nonempty.
+
+Two closed sets is not strong enough of a condition.
+Take for a counter example the subset where $y = 0$ and the graph of $\frac{1}{x}$.
+
 \end{document}

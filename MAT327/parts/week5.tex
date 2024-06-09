@@ -1,0 +1,51 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Week V - Metric topologies}
+
+\begin{problem}[4]
+    \begin{itemize}
+        \item[(b)] Prove that if $X$ is sequential and $f(x_n) \to f(x)$ whenever $x_n \to x$, then $f$ is continuous.
+    \end{itemize}
+\end{problem}
+
+\begin{proof}[Proof of (a)]
+    Let $V$ be a neighbourhood of $f(x)$.
+    \footnote{We want to show there is a tail of $f(x_n)$ inside $V$.}
+    By continuity of $f$, we have a neighbourhood around $x$ such that $f(U) \subseteq V$.
+    By the limit of $(x_n)$, we have some large $N$ such that $x_n \in U$ for $n \ge N$.
+    But since $x_n \in U$, we have $f(x_n) \in V$, and this shows $f(x_n) \to f(x)$.
+\end{proof}
+
+\begin{proof}[Proof of (b)]
+\end{proof}
+
+\begin{problem}[5]
+    Prove that the lexicographic plane is metrizable.
+\end{problem}
+\begin{proof}
+    \footnote{Find a metric on $\mathbb{R}^2$ such that the topology generated is the lexicographic topology.}
+    Take the metric
+    \[
+        d(x_1 \times y_1, x_2 \times y_2) = \begin{cases}
+            \min\{|y_1 - y_2|, 1\} &, x_1 = x_2 \\
+            1 &, x_1 \ne x_2
+        \end{cases}
+    \]
+    where $x_1 \times y_1, x_2 \times y_2 \in \mathbb{R} \times \mathbb{R}$.
+    First we will show this is a metric.
+    \footnote{Show $d(x, y) \ge 0$, $d(x, y) = d(y, x)$, and the triangle inequality.}
+    Clearly, the postive and symmetric properties hold.
+    To show the triangle inequality, suppose three points $x, y, z$.
+    We have $3$ cases to check.
+    Case 1, every point has a different first coordinate, this case holds.
+    Case 2, 2 points have the same first coordinate, 
+    This is indeed a metric.
+
+    Now we can compare the basis of the two topologies.
+    The basis of the metric topology are open sets in the lexicographic topology, and at the same time, the basis for lexicographic topology is in the metric topology.
+    Thus we are done.
+\end{proof}
+
+\end{document}
