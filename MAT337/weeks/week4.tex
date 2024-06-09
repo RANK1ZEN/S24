@@ -4,108 +4,34 @@
 
 \section{Week IV}
 
-\begin{problem}[\S4.1 I]
-    Suppose that $U$ is a linear transformation from $\mathbb{R}^n$ into $\mathbb{R}^m$ that is \textbf{isometric}, meaning that $\|U \mathbf{x}\| = \|\mathbf{x}\|$ for all $\mathbf{x} \in \mathbb{R}^n$.
-    \begin{enumerate}[label=(\alph*)]
-        \item Prove that $\langle U\mathbf{x}, U \mathbf{y} \rangle = \langle \mathbf{x}, \mathbf{y} \rangle$ for all $\mathbf{x}, \mathbf{y} \in \mathbb{R}^n$.
-        \item If $\{ \mathbf{v}_1, \cdots, \mathbf{v}_k \}$ is an orthonormal set in $\mathbb{R}^n$, show that $\{ U \mathbf{v}_1, \cdots, U \mathbf{v}_k \}$ is also orthonormal.
-    \end{enumerate}
-\end{problem}
-\begin{enumerate}[label=(\alph*)]
-    \item Using the isometric property, we have the following.
-        \begin{align*}
-            \langle U\mathbf{x}, U\mathbf{y} \rangle
-            &= \|U\mathbf{x}\| \|U\mathbf{y}\| \cos\theta \\
-            &= \|\mathbf{x}\| \|\mathbf{y}\| \cos\theta \\
-            &= \langle \mathbf{x}, \mathbf{y} \rangle
-        \end{align*}
-    \item \#TODO
-\end{enumerate}
-
-\section{4.1 J \#TODO}
-\begin{problem}
-    \begin{enumerate}[label=(\alph*)]
-        \item Let $U$ be an isometric linear transformation of $\mathbb{R}^n$ onto itself.
-            Show that the $n$ columns of the matrix of $U$ form an orthonormal basis for $\mathbb{R}^n$.
-    \end{enumerate}
-\end{problem}
-
-\section{4.2 D}
-\begin{problem}
-    Let $\mathbf{x}_0 \in \mathbb{R}^n$ and $R > 0$.
-    Prove that $\{ \mathbf{x} \in \mathbb{R}^n : \|\mathbf{x} - \mathbf{x}_0\| \le R \}$ is complete.
-\end{problem}
-\begin{proof}
-    Fix a Cauchy sequence $(\mathbf{x}_k)_{k = 1}^\infty$ in $X$ (the set above).
-    By completeness of $\mathbb{R}^n$, $(\mathbf{x}_k)$ converges to some $\mathbf{a} \in \mathbb{R}^n$.
-    Next, consider the sequence $(\| \mathbf{x}_k - \mathbf{x}_0 \|)_{k = 1}^\infty$ with $\| \mathbf{x}_k - \mathbf{x}_0 \| \le R$ for all $k$.
-    By continuity of the norm, $\lim_{k \to \infty} \| \mathbf{x}_k - \mathbf{x}_0 \| \le R$ implies $\| \mathbf{a} - \mathbf{x}_0 \| \le R$, implies $\mathbf{a} \in X$ as needed.
-\end{proof}
-
-\section{4.2 F}
-\begin{problem}
-    Let $\mathbf{v}_0 = (x_0, y_0)$ with $0 < x_0 < y_0$.
-    Define for all $n \ge 0$,
-    \[
-        \mathbf{v}_{n + 1} = (x_{n + 1}, y_{n + 1}) = \left(\sqrt{x_n y_n}, \frac{x_n + y_n}{2}\right).
-    \]
-    \begin{enumerate}[label=(\alph*)]
-        \item Show by induction that $0 < x_n < x_{n + 1} < y_{n + 1} < y_n$.
-        \item Then estimate $y_{n + 1} - x_{n + 1}$ in terms of $y_n - x_n$.
-    \end{enumerate}
-\end{problem}
-Fix $n \ge 0$.
-Consider the base case $n = 0$.
-We trivially have $0 < x_0 < y_1 < y_0$, thus it suffices to show $x_0 < x_1 < y_1$.
-For the first equality, we have $x_0^2 < x_0 y_0$ then $x_0 < \sqrt{x_0 y_0}$.
-For the second equality, we have 
-
-\begin{align*}
-    y_{n + 1} - x_{n + 1} &= \frac{x_n + y_n}{2} - \sqrt{x_n y_n} \\
-                          &= (\sqrt{x} )
-\end{align*}
-
-%\section{4.3 H}
 \begin{problem}[\S4.3 H]
-    Show that a subset of $\mathbb{R}^n$ is complete\footnote{Every Cauchy sequence converges to a point in the set.}
-    if and only if it is closed\footnote{Contains all its limit points. A point is a limit point if there is some sequence that converges to it.}.
+Show that a subset of $\mathbb{R}^n$ is complete
+\footnote{Every Cauchy sequence converges to a point in the set.}
+if and only if it is closed.
+\footnote{Contains all its limit points.
+A point is a limit point if there is some sequence that converges to it.}
 \end{problem}
 
-% \begin{problem}
-%     Show that a subset of $\mathbb{R}^n$ is complete if and only if it is closed.
-% \end{problem}
 \begin{proof}
-    Let $A$ be a subset of $\mathbb{R}^n$.
-    ($\Rightarrow$) Suppose $A$ is complete.
-    For each limit point $x$ and the sequence $(x_k)$ which approaches $x$, $(x_k)$ must also be Cauchy, which by completeness of $\mathbb{R}^n$ shows that $x \in A$.
-    ($\Leftarrow$) Conversely, suppose $A$ is closed.
-    Let $(x_k)$ be a Cauchy sequence in $A$, by completeness of $\mathbb{R}^n$, it converges to some point in $\mathbb{R}^n$.
-    By the closed property, this point must also converge to a point in $A$.
+	Let $A$ be a subset of $\mathbb{R}^n$.
+	($\Rightarrow$) Suppose $A$ is complete.
+	For each limit point $x$ and the sequence $(x_k)$ which approaches $x$, $(x_k)$ must also be Cauchy, which by completeness of $\mathbb{R}^n$ shows that $x \in A$.
+
+	($\Leftarrow$) Conversely, suppose $A$ is closed.
+	Let $(x_k)$ be a Cauchy sequence in $A$, by completeness of $\mathbb{R}^n$, it converges to some point in $\mathbb{R}^n$.
+	By the closed property, this point must also converge to a point in $A$.
 \end{proof}
 
 \begin{problem}[\S4.4 F]
-    Let $(x_n)_{n = 1}^\infty$ be a sequence in a compact set $K \subseteq \mathbb{R}^n$ that is not convergent.
-    Show that there are two subsequences of this sequence that are convergent to different limit points.
-\end{problem}
-\begin{proof}
-    Since $K$ is compact, we apply Bolzano-Weierstrass to obtain a subsequence $(x_{n_i})_{i = 1}^\infty$ that converges to $a \in K$.
-    Since $(x_n)$ does not converge to $a$, we have some positive $\varepsilon$ such that for every natural $N$ there exists $n \ge N$ such that $\|x_n - a\| \ge \varepsilon$.
-    This forms another subsequence $(x_{n_j})$ such that $\|x_{n_j} - a\| \ge \varepsilon$ for all $j$.
-    Apply Bolzano-Weierstrass again to $(x_{n_j})$ to obtain a subsequence that converges to a point different than $a$.
-\end{proof}
-
-
-\section{Extras}
-\begin{problem}
-    Suppose that $A$ is an $n \times n$ square matrix, and $\mathbf{v} \in \mathbf{R}^n$.
-    Decide when the sequence $\mathbf{x}_k = A^k\mathbf{v}$ converges, and to what it converges to, based on the vector $\mathbf{v}$ and the eigenvalues and eigenvectors of $A$.
+Let $(x_n)_{n = 1}^\infty$ be a sequence in a compact set $K \subseteq \mathbb{R}^n$ that is not convergent.
+Show that there are two subsequences of this sequence that are convergent to different limit points.
 \end{problem}
 
-% 3.2 B
-Show that if $(|a_n|)_{n=1}^\infty$ is summable, then so is $(a_n)_{n=1}^\infty$.
 \begin{proof}
-    This is a case of the comparison test.
-    $(|a_n|)$ is summable and $|a_n| \le |a_n|$ then $a_n$ is summable.
+	Since $K$ is compact, we apply Bolzano-Weierstrass to obtain a subsequence $(x_{n_i})_{i = 1}^\infty$ that converges to $a \in K$.
+	Since $(x_n)$ does not converge to $a$, we have some positive $\varepsilon$ such that for every natural $N$ there exists $n \ge N$ such that $\|x_n - a\| \ge \varepsilon$.
+	This forms another subsequence $(x_{n_j})$ such that $\|x_{n_j} - a\| \ge \varepsilon$ for all $j$.
+	Apply Bolzano-Weierstrass again to $(x_{n_j})$ to obtain a subsequence that converges to a point different than $a$.
 \end{proof}
 
 \begin{problem}[\S4.4 I]
