@@ -62,12 +62,29 @@ Hence $(n_k)$ satisfies an increasing sequence where for each $k$,
 Since we have $|x_{n_k} - L| < \frac{1}{k}$ for every $k$, we can conclude that $x_{n_k}$ converges to $L$.
 
 \begin{problem}[\S2.7 J]
-(\textbf{a}) Suppose that $(x_n)_{n = 1}^\infty$ is a sequence of real numbers.
-If $L = \liminf x_n$,\footnote{$\liminf$ is defined as
-	\[ \liminf x_n := \lim_{n \to \infty} \left(\inf_{m \ge n} x_m\right) \]}
+Suppose that $(x_n)_{n = 1}^\infty$ is a sequence of real numbers.
+If $\liminf x_n = L$
+is a real number,
+\footnote{The limit inferior is defined as
+\[
+    \liminf x_n := \lim_{n \to \infty} \left(\inf_{m \ge n} x_m\right)
+\]
+}
 show that there is a subsequence $(x_{n_k})_{k = 1}^\infty$ such that $\lim_{k \to \infty} x_{n_k} = L$.
+Similarly, prove that there is a subsequence $(x_{n_l})_{l = 1}^\infty$ such that $\lim_{l \to \infty} x_{n_l} = \limsup x_n$.
 \end{problem}
-{\huge TODO}
+
+\begin{proof}
+    Construct $(x_{n_k})_{k = 1}^\infty$ as follows.
+    For each $k$, by assumption of the limit inferior, we have some $N$ such that
+    \[
+        \left|\left(\inf_{m \ge n} x_m\right) - L\right| < \frac{1}{k} \text{ for all } n \ge N.
+    \]
+    For the infimum to have this bound, there must exist an element $x_{m'}$ such that $|x_{m'} - L| < 1/k$.
+    Taking $x_{n_k}$ to be this element, we get that for every $k$, $|x_{n_k} - L| < 1/k$, thus $(x_{n_k})$ has limit $L$.
+
+    A every similar thing holds for the other statement.
+\end{proof}
 
 \begin{problem}[\S2.8 A]
 Let $(x_n)$ be Cauchy with a subsequence $(x_{n_k})$ such that
