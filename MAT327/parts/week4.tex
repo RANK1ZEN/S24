@@ -1,0 +1,218 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Week IV - Continuous functions, initial topologies, the product topology}
+
+\begin{problem}[1]
+Suppose that $f : X \to Y$ is continuous\footnote{$f$ is continuous $\Leftrightarrow$ for each open subset of $Y$, the preimage is an open subset of $X$.}.
+If $x$ is a limit point of $A \subseteq X$, does it follow that $f(x)$ is a limit point of $f[A]$?
+\end{problem}
+\begin{proof}
+	Let $V$ be a neighbourhood\footnote{$U$ is a neighbourhood of $x$ iff $U$ is an open set containing $x$.}
+	around $f(x)$.
+	Use continuity of $f$ to obtain the neighbourhood $f^{-1}[V]$ as an open subset of $X$ such that $x \in f^{-1}[V]$.
+	Since $x$ is a limit point of $A$, $f^{-1}[V]$ intersects with $A$ at some point other than $x$, call this point $x_0$.
+	Now consider $f(x_0)$.
+	Using the following inequality\footnote{Follows from inclusion properties of image and preimages.},
+	\[
+		f[f^{-1}[V] \cap A]
+		\quad \subseteq \quad
+		f[f^{-1}[V]] \cap f[A]
+		\quad \subseteq \quad
+		V \cap f[A],
+	\]
+	we have that $f(x_0) \in V \cap f[A]$ and is a point distinct of $f(x)$.
+	This shows the intersection is nonempty, and $f(x)$ is indeed a limit point of $f[A]$.
+\end{proof}
+
+\begin{problem}[2]
+Let $X$ be a topological space and let $\{ U_\alpha : a \in \Lambda \}$ be a collection of open sets such that
+\[
+	X = \bigcup_{\alpha \in \Lambda} U_\alpha.
+\]
+\begin{enumerate}[label=(\alph*)]
+	\item Prove that if $Y$ is topological space and $f: X \to Y$ is a function such that each restriction $f\upharpoonright U_\alpha$ is continuous, then $f$ is continuous as well.
+	\item Conclude that the Pasting Lemma\footnote{If $X$ is the union of two closed sets, and we have continuous functions defined on the sets, if the continuous functions agree, then the combined function is also continuous.}
+	      holds if $X$ is expressed as the union of two open (instead of closed) sets.
+\end{enumerate}
+\end{problem}
+A union B where A and B are closed in X.
+If $f$ and $g$ are conty and they agree in the intersection, then the piecewise fucntion is continioue.
+\begin{enumerate}[label=(\alph*)]
+	\item Fix an open set $V \subseteq Y$.
+	      The preimage $f^{-1}[V]$ is equal to the union of all $(f\upharpoonright U_\alpha)^{-1}[V]$.
+	      Since each restriction is continuous, their preimages are open, and thus this shows the union $f^{-1}[V]$ is also open.
+	\item Fix two open sets $A, B \subseteq X$ and two continuous functions $f, g$ defined on $A$ and $B$ respectively.
+	      In the case of the pasting lemma, we have a function $h : X \to Y$, where $h\upharpoonright A = f$ and $h\upharpoonright B = g$.
+	      Following from (a), $h$ is continuous as well.
+\end{enumerate}
+
+\begin{problem}[3, \S18 Ex.9]
+Let $\mathscr{A} := \{ A_\alpha : \alpha \in \Lambda \}$ be a collection of closed subsets of the topological space $X$ such that
+\[
+	X= \bigcup_{\alpha \in \Lambda} A_\alpha,
+\]
+and let $f : X \to Y$ be a function such that each restriction $f \upharpoonright A_\alpha$ is continuous.
+\begin{enumerate}[label=(\alph*)]
+	\item Prove that $f$ is continuous if $\mathscr{A}$ is finite.
+	\item Does (a) hold if $\mathscr{A}$ is infinite?
+	\item The family $\mathscr{A}$ is called \emph{locally finite} if each point $x \in X$ has an open neighbourhood that intersects only finitely many $A_\alpha$'s.
+	      Prove that if $\mathscr{A}$ is locally finite then $f$ is continuous.
+\end{enumerate}
+\end{problem}
+
+\begin{proof}[Proof of (a)]
+	Use repeated application of the pasting lemma.
+    It suffices to show this property for the case when $\mathscr{A}$ is two closed subsets; we can just apply induction for an arbitrary $n$ subsets.
+
+    Suppose $U, V$ are closed subsets of $X$ such that $X = U \cup V$.
+    Since $f \upharpoonright U$ is continuous and $f \upharpoonright V$ is continuous, by the pasting lemma, $f$ is continuous.
+\end{proof}
+
+(a) does not hold for an infinite collection because $X$ might not be closed so we have counter examples like $f(x) = 1/x$ with domain $\mathbb{R} \setminus \{0\}$.
+
+\begin{proof}[Proof of (c)]
+	Proceed by the open neighbourhood/image characterization of continuity\footnote{$f$ is continuous $\Leftrightarrow$ for each $x \in X$ and each open neighbourhood $V$ of $f(x)$, there is an open neighbourhood $U$ of $x$ such that $f[U] \subseteq V$.}
+	.
+
+	% But first, we show another property.
+	% Fix a point $x \in X$.
+	% Since $\mathscr{A}$ is locally finite, we have an open neighbourhood $U_x$ around $x$ that intersects finite many $A_\alpha$'s.
+	% Let $U'$ be the union of the finite $A_\alpha$'s.
+	% Note that $U'$ is closed and it contains $U_x$ since the $A_\alpha$'s cover $X$.
+	% Thus by (a), $f$ is at least continuous on $U_x$.
+
+
+	To show continuity on $X$, fix a point $x \in X$, and let $V$ be an open neighbourhood of $f(x)$.
+	We can require an open neighbourhood $U$ of $x$ that intersects with finitely many $A_\alpha$'s.
+    Lets call this collection $A'$ with $A$ being their union.
+    Since $X$..., $U \subseteq A$.
+    In fact, $A$ is a topological space and $f \upharpoonright A$ is continuous since $A'$ is finite.
+    Now let $V$ be a neighbourhood of $f(x)$.
+    There exists 
+\end{proof}
+
+\begin{problem}[5]
+Consider $\mathbb{R}$ endowed with the usual topology.
+\begin{enumerate}[label=(\alph*)]
+	\item Prove that every collection of pairwise disjoint open subsets of $\mathbb{R}$ is countable.
+	\item Prove that the set of $\alpha\in\omega_1$ with an immediate predecessor is uncountable.
+	\item Conclude that there is no order-preserving function $f\colon\omega_1\to\mathbb{R}$.
+	\item Is there an imbedding $f\colon\omega_1\to\mathbb{R}$?
+\end{enumerate}
+\end{problem}
+
+\begin{proof}[Proof of (a)]
+    Let $\mathscr{A}$ be a collection of pairwise disjoint open subsets of $\mathbb{R}$.
+    We can show an injection from $\mathscr{A}$ to $\mathbb{Q}$, which shows that $\mathscr{A}$ is countable.
+    For each $A \in \mathscr{A}$, map $A$ to a unique ration in $A$; this holds under the pariwise disjoint assumption.
+\end{proof}
+
+\begin{proof}[Proof of (b)]
+
+\end{proof}
+
+
+\begin{problem}[6]
+    Prove that the subspace topology is the initial topology of the inclusion function.
+\end{problem}
+\begin{proof}
+    Let $(X, \tau)$ be a topological space and fix a subset $A \subseteq X$.
+    An open set in the subspace topology takes the form $A \cap U$ for $U \in \tau$.
+    At the same time, the initial topology is generated by the subbasis
+    \[
+        \{ \iota^{-1}(U) : U \in \tau \}.
+    \]
+    Since the preimage preserves\footnote{This means the preimage of a (arbitrary) union is the union of preimages; same for intersections.} union and intersections, the general open set in the initial topology is again $\iota^{-1}(U)$ where $U \in \tau$.
+    But since $\iota^{-1}(U) = A \cap U$, we conclude the two topologies are the same.
+\end{proof}
+
+\begin{problem}[7]
+Let $\tau$ be a topology on the set $X$ and let $S$ be the Sierpi\'nski space.\footnote{
+	The set of two elements, $\{0, 1\}$ and the open sets are $\{ \emptyset, \{1\}, \{0, 1\} \}$.}
+Prove that $\tau$ is the initial topology\footnote{The initial topology given a family of functions is defined as the intersection of all $\tau$, where $\tau$ is a topology on $X$ and each function is continuous on $(X, \tau)$.}
+of the continuous functions $f : X \to S$.
+\end{problem}
+{\huge TODO}
+\begin{proof}
+	($\subseteq$). Fix an open set $U \in \tau$.
+	Since the functions of the form $f : X \to S$ is the set $\{0, 1\}^X$, we will have a characteristic function of $U$.
+	The preimage $\{1\}$ of this function is $U$, and since $\{1\}$ is open in the Sierpi\'nski space, so is $U$.
+
+	($\supseteq$) Fix an open set $U$ in the initial topology.
+\end{proof}
+
+\begin{problem}[8, Munkres Theorem 19.4]
+Let $\{ X_\alpha : \alpha \in \Lambda \}$ be a collection of Hausdorff spaces and let $X$ be their Cartesian product.\footnote{
+	The Cartesian product is the set of all functions
+	\[ x : \Lambda \to \bigcup_{\alpha \in \Lambda} X_\alpha \]
+	such that $x(\alpha) \in X_\alpha$ for each $\alpha \in \Lambda$.
+}
+\end{problem}
+\begin{enumerate}[label=(\alph*)]
+	\item Prove that $X$ is Hausdorff when endowed with the product topology.
+	\item Prove that $X$ is Hausdorff when endowed with the box topology.
+\end{enumerate}
+Fix two distinct points $x, y \in X$.
+Then there is some $\alpha_0$ such that $x$
+
+\begin{problem}[9]
+    Let $\mathbb{R}^\infty$ be the subset of $\mathbb{R}^\omega$ consisting of all the sequences of real numbers that are \textbf{eventually zero}, i.e., all sequences $(x_n:n\in\mathbb{N})$ for which $x_n\neq 0$ for only finitely many $n$'s.
+    \footnote{$\mathbb{R}^\omega$ is an infinite countable product of $\mathbb{R}$, i.e., an arbitrary sequence of reals.}
+
+    Compute the closure of $\mathbb{R}^\infty$ in $\mathbb{R}^\omega$ both in the box and product topologies.
+\end{problem}
+
+In the box topology, $\overline{\mathbb{R}^\infty} = \mathbb{R}^\infty$.
+To show this, it suffices to show $\mathbb{R}^\infty$ contains all of its limit points.
+\footnote{$\overline{A} = A \Leftrightarrow A' \subseteq A$ $\Leftrightarrow$ $A$ is closed.}
+Suppose $x$ is a limit point of $\mathbb{R}^\infty$.
+By definition, for each open neighbourhood $U$ of $x$, there exists another sequence $y \in U$ different from $x$ that is eventually zero.
+Note that $U$ takes the form
+\[
+    \prod_{\alpha \in \omega} (a_\alpha, b_\alpha)
+\]
+where $x_\alpha \in (a_\alpha, b_\alpha)$ for every $\alpha$.
+Thus if we also have $y_\alpha \in (a_\alpha, b_\alpha)$, and $y$ is eventually zero, then $x$ must also be eventually zero.
+
+In the product topology, the open sets are slightly different, and in this case, $\overline{\mathbb{R}^\infty} = \mathbb{R}^\omega$.
+Again, suppose $x$ is a limit point of $\mathbb{R}^\infty$, and for each open neighbourhood of $x$, there is some sequence sequence $y$ that is eventually zero.
+Since $U$ under the product topology can only have a finite number of indices with arbitrary open sets, $x$ does not necessarily have to be eventually zero.
+Thus the set of limit points of $\mathbb{R}^\infty$ is $\mathbb{R}^\omega$, which implies $\overline{\mathbb{R}^\infty} = \mathbb{R}^\omega$.
+\footnote{$\overline{A} = A' \cup A$.}
+
+\begin{problem}[10]
+Let $\{X_\alpha:\alpha\in\Lambda\}$ be a collection of topological spaces and let $X$ be their Cartesian product.
+Let $(x_n:n\in\mathbb{N})$ be a sequence in $X$.
+\begin{enumerate}
+    \item[(a)] Prove that $x_n \to x$ in the product topology if, and only if, for each $\alpha\in\Lambda$, the sequence $(\pi_\alpha(x_n):n\in\mathbb{N})$ converges to $\pi_\alpha(x)$.
+    \item[(b)] Is (a) true if we endow $X$ with the box topology instead?
+\end{enumerate}
+\end{problem}
+
+\begin{proof}[Proof of (a)]
+	($\Rightarrow$)\footnote{For each neighbourhood $U_\alpha$ of $\pi_\alpha(x)$, find a tail of $(\pi_\alpha(x_n))$ inside $U_\alpha$.}
+	Let $U_\alpha$ be a neighbourhood of $\pi_\alpha(x)$.
+	Under the product topology, $\pi^{-1}_\alpha(U_\alpha)$ is a neighbourhood of $x$.
+	By assumption of $x_n \to x$, we have some $N \in \mathbb{N}$ such that for $n \ge N$, $x_n \in \pi^{-1}_\alpha(U_\alpha)$.
+	We arrive at the following:\footnote{Use the following: $f(f^{-1}(A)) \subseteq A$.}
+	\[
+		\pi_\alpha(x_n) \in \pi_\alpha(\pi_\alpha^{-1}(U_\alpha)) \subseteq U_\alpha,
+	\]
+	which shows $\pi_\alpha(x_n) \to \pi_\alpha(x)$.
+
+	($\Leftarrow$)\footnote{For each neighbourhood $U$ of $x$ (we can use the basis as well), find a tail of $(x_n)$ inside $U$.}
+	Let $U$ be a basic open set around $x$.
+	$U$ can be written as
+	\[
+		\pi_{\alpha_1}^{-1}(U_{\alpha_1}) \cap \cdots \cap \pi_{\alpha_m}^{-1}(U_{\alpha_m}),
+	\]
+	in which each $U_{\alpha_k}$ is an open neighbourhood of $\pi_{\alpha_k}(x)$.
+	Using the limit of each $\pi_{\alpha_k}(x_n)$, we have some $N_{\alpha_k} \in \mathbb{N}$ such that for $n \ge N_{\alpha_k}$, $\pi_{\alpha_k}(x_n) \in U_{\alpha_k}$.
+	We can take the largest of the $N_{\alpha_k}$'s, in which for $n$ greater, we have $\pi_{\alpha_k}(x_n) \in U_{\alpha_k}$ for every $k$.
+    By definition\footnote{For every $k$, the $\alpha_k$th index of $x_n$ is in $U_{\alpha_k}$.}
+    this means $x_n \in U$.
+\end{proof}
+
+\end{document}
