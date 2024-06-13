@@ -5,8 +5,11 @@
 \section{Week V - Metric topologies}
 
 \begin{problem}[4]
+    Let $X$ and $Y$ be topological spaces, and let $f : X \to Y$ be a function.
     \begin{itemize}
-        \item[(b)] Prove that if $X$ is sequential and $f(x_n) \to f(x)$ whenever $x_n \to x$, then $f$ is continuous.
+        \item[(b)] Prove that if $X$ is sequential
+            \footnote{$X$ is sequential $\Leftrightarrow$ for every $A \subseteq X$, and every $x \in \overline{A}$, there is a sequence $(x_n)$ in $A$ with $x_n \to x$.}
+            and $f(x_n) \to f(x)$ whenever $x_n \to x$, then $f$ is continuous.
     \end{itemize}
 \end{problem}
 
@@ -19,6 +22,12 @@
 \end{proof}
 
 \begin{proof}[Proof of (b)]
+    Suppose $A$ is a subset of $X$.
+    \footnote{We want to show $f(\overline{A}) \subseteq \overline{f(A)}$.}
+    Fix $x \in \overline{A}$, since $X$ is sequential, we have a sequence $(x_n)$ in $A$ with $x_n \to x$.
+    By assumption this is equivalent to $f(x_n) \to f(x)$.
+    This is equivalent to $f(x)$ is a limit point and thus $f(x) \in \overline{f(A)}$.
+    FIXME $f(\overline{A}) \subseteq \overline{f(A)}$.
 \end{proof}
 
 \begin{problem}[5]
