@@ -1,0 +1,32 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+\begin{problem}[\S22 Ex. 2]
+$ $
+\begin{itemize}
+    \item[(a)] Let $p: X \to Y$ be a continuous map.
+	      Show that if there is a continuous map $f : Y \to X$ such that $p \circ f$ equals the identity map of $Y$, then $p$ is a quotient map.
+          \footnote{This basically says that if you can find a right-inverse, its a quotient map.}
+
+    \item[(b)] If $A \subseteq X$, a retraction of $X$ onto $A$ is a continuous map $r : X \to A$ such that $r(a) = a$ for each $a \in A$.
+	      Show that a retraction is a quotient map.
+\end{itemize}
+\end{problem}
+
+Since $p$ is continuous by assumption, we only need to show one side of the implication.
+\footnote{Show that $p$ maps saturated open sets of $X$ to open sets of $Y$.}
+Let $A = p^{-1}(B)$ be an open set in $X$.
+Since $f$ is continuous, $f^{-1}(A)$ is open.
+\footnote{For an open set in the codomain, the preimage is also open.}
+Using the following equality,
+\begin{equation*}
+	f^{-1}(A) = f^{-1}(p^{-1}(B)) = (p \circ f)^{-1}(B) = B,
+\end{equation*}
+we also get that $B$ is open.
+
+Consider $f: A \to X$ given by $f(a) = a$.
+\footnote{Also called the inclusion map.}
+$r \circ f$ is the identity map on $A$, hence by applying (a), we  get that $r$ is a quotient map.
+
+\end{document}
