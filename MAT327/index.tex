@@ -2,6 +2,8 @@
 
 \begin{document}
 
+\section{Products}
+
 \begin{problem}[Theorem 19.6]
     Let $f : A \to \prod_{\alpha \in J} X_\alpha$ be given by the equation
     \begin{equation}
@@ -32,17 +34,15 @@
 
 \section{Quotients}
 
-\footnote{The \textbf{quotient topology} is the topology on $A$ that makes $p$ a quotient map.}
-
-
 \begin{problem}[\S22 Ex. 2]
 $ $
 \begin{itemize}
     \item[(a)]
         Let $p: X \to Y$ be a continuous map.
         Show that if there is a continuous map $f : Y \to X$ such that $p \circ f$ equals the identity map of $Y$, then $p$ is a quotient map.
-        \footnote{$p$ is a \textbf{quotient map} when $V$ open $\Leftrightarrow$ $p^{-1}(V)$ open.}
-        \footnote{$f$ is a \textbf{right-inverse}.}
+        \footnote{$p$ is a \textbf{quotient map} when $V$ open $\Leftrightarrow$ $p^{-1}(V)$ open; $p$ also needs to be surjective.
+        A quotient map that is bijective is just a homeomorphic map.}
+        \footnote{We can give $Y$ the \textbf{quotient topology} which is the finest topology that makes $p$ a quotient map.}
 
     \item[(b)]
         If $A \subseteq X$, a retraction of $X$ onto $A$ is a continuous map $r : X \to A$ such that $r(a) = a$ for each $a \in A$.
@@ -67,7 +67,7 @@ $r \circ f$ is the identity map on $A$, hence by applying (a), we  get that $r$ 
     \begin{itemize}
         \item[(a)]
             Define an equivalence relation
-            \footnote{This \textbf{equivalence relation} defines an \textbf{equivalence class} of $[x_0 \times y_0]$, all $x_1 \times y_1$ satisfy this equation.}
+            \footnote{This \textbf{equivalence relation} defines an \textbf{equivalence class} of $[x_0 \times y_0]$, all $x_1 \times y_1$ satisfy this equation i.e. parabolas.}
             on the plane $X = \mathbb{R}^2$ as follows.
             \begin{equation*}
                 x_0 \times y_0 \sim x_1 \times y_1 \text{ if } x_0 + y_0^2 = x_1 + y_1^2
